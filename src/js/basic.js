@@ -1,11 +1,13 @@
-export default function getByAttack(obj, idAttack) {
-  const { special } = obj;
-  const attackArr = special.find((item) => item.id === idAttack);
-
-  if (attackArr.description === undefined) {
-    attackArr.description = 'Описание недоступно';
+export default function getByAttack(obj) {
+  const result = [];
+  for (const item of obj.special) {
+    const {
+      id, name, icon, description = 'Описание недоступно',
+    } = item;
+    const resultArr = {
+      id, name, icon, description,
+    };
+    result.push(resultArr);
   }
-  const resultArr = [attackArr.id, attackArr.name, attackArr.icon, attackArr.description];
-  // console.log(resultArr);
-  return resultArr;
+  return result;
 }

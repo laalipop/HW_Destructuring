@@ -24,13 +24,26 @@ const character = {
 };
 
 test('ordinary array', () => {
-  const result = [8, 'Двойной выстрел', 'http://...', 'Двойной выстрел наносит двойной урон'];
-  const test = getByAttack(character, 8);
+  const result = [
+    {
+      id: 8,
+      name: 'Двойной выстрел',
+      icon: 'http://...',
+      description: 'Двойной выстрел наносит двойной урон'
+    },
+    {
+      id: 9,
+      name: 'Нокаутирующий удар',
+      icon: 'http://...',
+      description: 'Описание недоступно'
+    }
+  ];
+  const test = getByAttack(character);
   expect(test).toEqual(result);
 });
 
-test('array without type description', () => {
-  const result = [9, 'Нокаутирующий удар', 'http://...', 'Описание недоступно'];
-  const test = getByAttack(character, 9);
-  expect(test).toEqual(result);
-});
+// test('array without type description', () => {
+//   const result = [9, 'Нокаутирующий удар', 'http://...', 'Описание недоступно'];
+//   const test = getByAttack(character, 9);
+//   expect(test).toEqual(result);
+// });
